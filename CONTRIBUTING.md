@@ -1,41 +1,45 @@
 # Contributing to python-api-toolkit
 
-Thanks for your interest in contributing!
+Thank you for your interest! Here is how to contribute.
 
-## How to contribute
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feat/your-feature`)
-3. Make your changes with tests
-4. Run the test suite (`pytest tests/`)
-5. Submit a pull request
-
-## Code style
-
-- Use `ruff` for linting
-- Use `black` for formatting
-- All public functions need docstrings
-- Type hints are required
-
-## Commit messages
-
-Follow [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-feat: add new feature
-fix: fix a bug
-docs: update documentation
-test: add or fix tests
-refactor: refactor code without behavior change
-```
-
-## Running tests
+## Setup
 
 ```bash
+git clone https://github.com/Aliipou/python-api-toolkit.git
+cd python-api-toolkit
+python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-pytest tests/ -v --cov=api_toolkit
+```
+
+## Workflow
+
+1. Fork the repo and create a feature branch
+2. Write your code and tests
+3. Run `make lint && make test` — both must pass
+4. Open a pull request with a clear description
+
+## Code Style
+
+- Python 3.11+
+- `ruff` for linting and formatting
+- Type hints required on all public functions
+- Docstrings for all public classes and methods
+
+## Commit Messages
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+- `feat:` new feature
+- `fix:` bug fix
+- `docs:` documentation
+- `test:` tests only
+- `chore:` tooling/config
+
+## Running Tests
+
+```bash
+make test
 ```
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the MIT License.
+By contributing you agree your code is licensed under MIT.
