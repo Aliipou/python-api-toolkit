@@ -1,3 +1,7 @@
+[![CI](https://github.com/Aliipou/python-api-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/Aliipou/python-api-toolkit/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python)](https://python.org)
+
 # python-api-toolkit
 
 > A practical Python toolkit for building production-grade REST APIs
