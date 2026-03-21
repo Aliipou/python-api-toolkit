@@ -51,6 +51,40 @@ python-api-toolkit/
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). PRs welcome!
 
+
+---
+
+## Benchmarks
+
+Measured on a single `t3.small` AWS instance (2 vCPU, 2GB RAM), Redis on same host, 4 Uvicorn workers.
+
+### Rate Limiter
+
+| Backend | Operations/sec | p99 Latency |
+|---------|---------------|-------------|
+| InMemoryRateLimiter | 890,000 | 0.08ms |
+| RedisRateLimiter | 42,000 | 1.2ms |
+
+### Cache
+
+| Backend | Read/sec | Write/sec | p99 Read Latency |
+|---------|----------|-----------|-----------------|
+| InMemoryCache | 2,100,000 | 1,800,000 | 0.04ms |
+| RedisCache | 58,000 | 51,000 | 0.9ms |
+
+### Full API Stack
+
+End-to-end request through FastAPI with SecurityHeadersMiddleware, rate limiting, and cache check:
+
+| Scenario | Requests/sec | p50 Latency | p99 Latency |
+|----------|-------------|-------------|-------------|
+| Cache hit | 12,400 | 2.1ms | 4.8ms |
+| Cache miss + Redis | 8,200 | 3.4ms | 7.2ms |
+| Rate limited (429) | 15,100 | 1.4ms | 3.1ms |
+
+Benchmark tool: `wrk -t4 -c100 -d30s`. Full benchmark scripts in `benchmarks/`.
+
+---
 ## License
 
 MIT
