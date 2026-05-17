@@ -34,7 +34,7 @@ def register_error_handlers(app: FastAPI) -> None:
     @app.exception_handler(RequestValidationError)
     async def validation_exception_handler(request: Request, exc: RequestValidationError):
         request_id = str(uuid.uuid4())
-        errors = [{"field": ".".join(str(l) for l in e["loc"]), "msg": e["msg"]} for e in exc.errors()]
+        errors = [{"field": ".".join(str(part) for part in e["loc"]), "msg": e["msg"]} for e in exc.errors()]
         logger.warning("validation_error", extra={"errors": errors, "request_id": request_id})
         return JSONResponse(
             status_code=422,
