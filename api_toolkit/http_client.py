@@ -1,12 +1,10 @@
 """Async HTTP client with retry, timeout, and structured error handling."""
 from __future__ import annotations
-import asyncio
-import time
 import logging
-from typing import Any, Optional
-from urllib.request import urlopen, Request
+import time
+from typing import Any
 from urllib.error import HTTPError, URLError
-import json
+from urllib.request import Request, urlopen
 
 logger = logging.getLogger(__name__)
 
