@@ -1,7 +1,6 @@
 """Tests for the caching module."""
 import time
-import pytest
-from api_toolkit.cache import InMemoryCache, make_cache_key, get_cache
+from api_toolkit.cache import InMemoryCache, make_cache_key
 
 
 def test_set_and_get():
