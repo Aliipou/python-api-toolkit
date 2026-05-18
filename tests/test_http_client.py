@@ -1,7 +1,5 @@
 """Tests for async HTTP client."""
 import pytest
-import asyncio
-from unittest.mock import patch, MagicMock
 from api_toolkit.http_client import AsyncHttpClient, HttpClientError
 
 
